@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Expert & Developer Portfolio</title>
+    <title>lfillaz</title>
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
@@ -62,6 +64,7 @@
         header {
             text-align: center;
             margin-bottom: 3rem;
+            position: relative;
         }
 
         h1 {
@@ -158,6 +161,25 @@
             background-color: #dc2626;
         }
 
+        .audio-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .audio-button:hover {
+            background-color: var(--accent-color);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -175,14 +197,19 @@
 </head>
 <body>
     <video id="video-background" autoplay loop muted playsinline>
-        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/osBd8i0QeEYy0isCPnFPamhCB4BAAIotWzIyAh-dnK3fWOGg9NtebjuOBUbS6w6u4lbVr.mp4" type="video/mp4">
+        <source src="laz.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    <audio id="background-audio" loop>
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <div class="overlay"></div>
     <div class="container">
         <header>
-            <h1>Cybersecurity Expert & Developer</h1>
+            <h1>lfillaz</h1>
             <p>Specialized in Digital Forensics, Bug Bounty Hunting, and Full-Stack Development</p>
+            <button id="audio-toggle" class="audio-button">🔇</button>
         </header>
 
         <section class="services">
@@ -199,7 +226,7 @@
             <div class="card">
                 <div class="icon">💻</div>
                 <h2>Custom Development</h2>
-                <p>Specialized tools and applications for gaming and security</p>
+                <p>Specialized tools and applications for Web Security and bug hunting tools</p>
             </div>
         </section>
 
@@ -207,8 +234,8 @@
             <h2>Featured Projects</h2>
             <div class="project-grid">
                 <div class="card">
-                    <h3>Cyber Security Tools <a href="https://github.com/lfillaz" target="_blank">🔗</a></h3>
-                    <p>Collection of security testing and analysis tools</p>
+                    <h3>WINbackdoor<a href="https://github.com/lfillaz/winupdatebackdoor" target="_blank">🔗</a></h3>
+                    <p>WINUpGen is a sophisticated Windows backdoor generation tool designed for security research and testing. It provides advanced features for creating stealthy, controlled remote access payloads.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">Security</span>
@@ -216,21 +243,20 @@
                     </div>
                 </div>
                 <div class="card">
-                    <h3>Game Utilities <a href="https://github.com/lfillaz" target="_blank">🔗</a></h3>
-                    <p>Custom gaming tools and utilities</p>
+                    <h3>CVE-2024-2997<a href="https://github.com/lfillaz/CVE-2024-2997" target="_blank">🔗</a></h3>
+                    <p>The tool helps in quickly identifying vulnerabilities by examining a comprehensive list of potential paths on a website, making it useful for security assessments.</p>
                     <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Gaming</span>
-                        <span class="tag">Development</span>
+                        <span class="tag">python</span>
+                        <span class="tag">Tool</span>
+                        <span class="tag">Web</span>
                     </div>
                 </div>
                 <div class="card">
-                    <h3>Web Security Scanner <a href="https://github.com/lfillaz" target="_blank">🔗</a></h3>
-                    <p>Advanced web vulnerability scanner</p>
+                    <h3> UDP-Flooding-Tool <a href="https://github.com/lfillaz/UDP-Flooding-Tool" target="_blank">🔗</a></h3>
+                    <p>The UDP Flooding Tool is a network stress testing application designed to simulate high traffic conditions by sending a flood of UDP packets to a specified target IP address and port. This tool is …</p>
                     <div class="tags">
-                        <span class="tag">JavaScript</span>
                         <span class="tag">Security</span>
-                        <span class="tag">Web</span>
+                        <span class="tag">Rust</span>
                     </div>
                 </div>
             </div>
@@ -286,7 +312,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('video-background');
+            const audio = document.getElementById('background-audio');
+            const audioToggle = document.getElementById('audio-toggle');
+            
             video.playbackRate = 0.75; // Slow down the video playback
+            
+            audioToggle.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    audioToggle.textContent = '🔊';
+                } else {
+                    audio.pause();
+                    audioToggle.textContent = '🔇';
+                }
+            });
         });
     </script>
 </body>
