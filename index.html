@@ -4,14 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Expert & Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-color: rgba(0, 0, 0, 0.7);
+            --text-color: #ffffff;
+            --card-bg: rgba(24, 24, 27, 0.8);
+            --card-border: #27272a;
+            --accent-color: #ef4444;
+            --secondary-color: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .services, .projects, .skills, .contact {
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-grid, .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill {
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: var(--card-border);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: var(--card-border);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #dc2626;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .project-grid, .skill-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="particles-js"></div>
+    <video id="video-background" autoplay loop muted playsinline>
+        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/osBd8i0QeEYy0isCPnFPamhCB4BAAIotWzIyAh-dnK3fWOGg9NtebjuOBUbS6w6u4lbVr.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
     <div class="container">
         <header>
-            <h1>lfillaz</h1>
+            <h1>Cybersecurity Expert & Developer</h1>
             <p>Specialized in Digital Forensics, Bug Bounty Hunting, and Full-Stack Development</p>
         </header>
 
@@ -37,27 +207,30 @@
             <h2>Featured Projects</h2>
             <div class="project-grid">
                 <div class="card">
-                    <h3>winupdatebackdoor <a href="https://github.com/lfillaz/winupdatebackdoor" target="_blank">🔗</a></h3>
-                    <p>WINUpGen is a sophisticated Windows backdoor generation tool designed for security research and testing. It provides advanced features for creating stealthy, controlled remote access payloads.</p>
+                    <h3>Cyber Security Tools <a href="https://github.com/lfillaz" target="_blank">🔗</a></h3>
+                    <p>Collection of security testing and analysis tools</p>
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">Security</span>
+                        <span class="tag">Pentesting</span>
                     </div>
                 </div>
                 <div class="card">
-                    <h3>CVE-2024-2997 <a href="https://github.com/lfillaz/CVE-2024-2997" target="_blank">🔗</a></h3>
-                    <p>The tool helps in quickly identifying vulnerabilities by examining a comprehensive list of potential paths on a website, making it useful for security assessments.</p>
+                    <h3>Game Utilities <a href="https://github.com/lfillaz" target="_blank">🔗</a></h3>
+                    <p>Custom gaming tools and utilities</p>
                     <div class="tags">
-                        <span class="tag">Python</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Gaming</span>
                         <span class="tag">Development</span>
                     </div>
                 </div>
                 <div class="card">
-                    <h3> UDP Flooding Tool <a href="https://github.com/lfillaz/UDP-Flooding-Tool" target="_blank">🔗</a></h3>
-                    <p>The UDP Flooding Tool is a network stress testing application designed to simulate high traffic conditions by sending a flood of UDP packets to a specified target IP address and port. This tool is …</p>
+                    <h3>Web Security Scanner <a href="https://github.com/lfillaz" target="_blank">🔗</a></h3>
+                    <p>Advanced web vulnerability scanner</p>
                     <div class="tags">
+                        <span class="tag">JavaScript</span>
                         <span class="tag">Security</span>
-                        <span class="tag">rust</span>
+                        <span class="tag">Web</span>
                     </div>
                 </div>
             </div>
@@ -110,7 +283,11 @@
         </section>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('video-background');
+            video.playbackRate = 0.75; // Slow down the video playback
+        });
+    </script>
 </body>
 </html>
-
